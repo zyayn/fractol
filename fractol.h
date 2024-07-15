@@ -72,8 +72,8 @@ void	render(t_fractal *f);
 void	reset(t_fractal *f);
 void	set_palette(int **palette, int shift);
 
-int		mouse_event(int keycode, int x, int y, t_fractal *mlx);
-int		key_event(int keycode, t_fractal *mlx);
+int		mouse_event(int keycode, int x, int y, t_fractal *f);
+int		key_event(int keycode, t_fractal *f);
 
 int		mandelbrot(t_fractal *f, double cr, double ci);
 int		julia(t_fractal *f, double zr, double zi);

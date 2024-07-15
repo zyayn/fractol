@@ -35,7 +35,7 @@ SRC			=	fractol.c \
 				instructions.c \
 				events.c \
 				image.c \
-				fractals/fractals.c 
+				fractals.c 
 
 SRCS		= $(addprefix $(SRC))
 

@@ -58,60 +58,66 @@ static void	move(t_fractal *f, double distance, char direction)
 	}
 }
 
-int	mouse_event(int keycode, int x, int y, t_fractal *mlx)
+int	mouse_event(int keycode, int x, int y, t_fractal *f)
 {
 	if (keycode == MOUSE_WHEEL_UP)
 	{
-		zoom(mlx, 0.5);
+		zoom(f, 0.5);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 		if (x < 0)
-			move(mlx, (double)x * -1 / WIDTH, '<');
+			move(f, (double)x * -1 / WIDTH, '<');
 		else if (x > 0)
-			move(mlx, (double)x / WIDTH, '>');
+			move(f, (double)x / WIDTH, '>');
 		if (y < 0)
-			move(mlx, (double)y * -1 / HEIGHT, '^');
+			move(f, (double)y * -1 / HEIGHT, '^');
 		else if (y > 0)
-			move (mlx, (double)y / HEIGHT, 'v');
+			move (f, (double)y / HEIGHT, 'v');
 	}
 	else if (keycode == MOUSE_WHEEL_DOWN)
-		zoom(mlx, 2);
+		zoom(f, 2);
 	else
 		return (0);
-	render(mlx);
+	render(f);
 	return (1);
 }
 
-int	key_event(int keycode, t_fractal *mlx)
+void	key_move_zoom(int keycode, t_fractal *f)
+{
+	if (keycode == KEY_PLUS || keycode == KEY_I)
+		zoom(f, 0.5);
+	else if (keycode == KEY_MINUS || keycode == KEY_O)
+		zoom(f, 2);
+	else if (keycode == KEY_UP || keycode == KEY_W)
+		move(f, 0.2, '^');
+	else if (keycode == KEY_DOWN || keycode == KEY_S)
+		move(f, 0.2, 'v');
+	else if (keycode == KEY_LEFT || keycode == KEY_A)
+		move(f, 0.2, '<');
+	else if (keycode == KEY_RIGHT || keycode == KEY_D)
+		move(f, 0.2, '>');
+}
+
+int	key_event(int keycode, t_fractal *f)
 {
 	if (keycode == KEY_ESC)
-		clean_exit("Exit fract'ol...", mlx);
-	else if (keycode == KEY_PLUS || keycode == KEY_I)
-		zoom(mlx, 0.5);
-	else if (keycode == KEY_MINUS || keycode == KEY_O)
-		zoom(mlx, 2);
-	else if (keycode == KEY_UP || keycode == KEY_W)
-		move(mlx, 0.2, '^');
-	else if (keycode == KEY_DOWN || keycode == KEY_S)
-		move(mlx, 0.2, 'v');
-	else if (keycode == KEY_LEFT || keycode == KEY_A)
-		move(mlx, 0.2, '<');
-	else if (keycode == KEY_RIGHT || keycode == KEY_D)
-		move(mlx, 0.2, '>');
+		clean_exit("Exit fract'ol...", f);
 	else if (keycode == KEY_R)
-		reset(mlx);
+		reset(f);
 	else if (keycode == KEY_M)
-		mlx->detail += 1;
+		f->detail += 1;
 	else if (keycode == KEY_L)
 	{
-		if (mlx->detail > 1)
-			mlx->detail -= 1;
+		if (f->detail > 1)
+			f->detail -= 1;
 	}
 	else if (keycode == KEY_C)
 	{
-		mlx->cindex = (mlx->cindex + 1) % 7;
-		set_palette(&mlx->palette, mlx->cindex);
+		f->cindex = (f->cindex + 1) % 7;
+		set_palette(&f->palette, f->cindex);
 	}
-	render(mlx);
+	else
+		key_move_zoom(keycode, f);
+	render(f);
 	return (1);
 }

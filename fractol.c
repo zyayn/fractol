@@ -12,9 +12,9 @@
 
 #include "fractol.h"
 
-int	end_fractol(t_fractal *mlx)
+int	end_fractol(t_fractal *f)
 {
-	clean_exit("Exit fract'ol...", mlx);
+	clean_exit("Exit fract'ol...", f);
 	return (0);
 }
 
