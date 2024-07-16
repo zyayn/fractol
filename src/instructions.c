@@ -38,7 +38,7 @@ void	print_instr2(t_fractal *f)
 	ft_printf("    ./fractol mandelbrot\n\n");
 	ft_printf("  Bonus:\n");
 	ft_printf("    ./fractol sierpinski\n\n");
-	clean_exit("In valid argument(s). Please try again...", f);
+	clean_exit("Invalid argument(s). Please try again...", f);
 }
 
 void	print_instr1(void)
