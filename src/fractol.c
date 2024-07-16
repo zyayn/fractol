@@ -56,6 +56,7 @@ int	main(int argc, char **argv)
 	t_fractal	f;
 	int			i;
 
+	init(&f);
 	if (argc < 2 || !argv[1])
 		print_instr2(&f);
 	else
@@ -67,7 +68,6 @@ int	main(int argc, char **argv)
 				argv[1][i] = argv[1][i] + 32;
 			i++;
 		}
-		init(&f);
 		handle_input(argc, argv, &f);
 		render(&f);
 		print_instr1();
