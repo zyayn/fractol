@@ -63,11 +63,11 @@ void	render(t_fractal *f)
 
 void	reset(t_fractal *f)
 {
-	f->sx = 1.5;
+	f->cindex = 0;
+	f->detail = 1;
 	f->min_r = -4.0;
 	f->max_r = 4.0;
 	f->min_i = -4.0;
-	f->max_i = f->min_i + (f->max_r - f->min_r) * HEIGHT / WIDTH;
-	f->cindex = 0;
-	f->detail = 1;
+	f->max_i = 4.0;
+	f->sx = 1.5;
 }
