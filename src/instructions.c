@@ -35,11 +35,10 @@ void	print_instr2(t_fractal *f)
 	ft_printf("    ./fractol julia -0.123 0.745\n");
 	ft_printf("    ./fractol julia -0.835 -0.2321\n");
 	ft_printf("    ./fractol julia -0.39054 -0.58679\n");
-	ft_printf("    ./fractol mandeblot\n\n");
+	ft_printf("    ./fractol mandelbrot\n\n");
 	ft_printf("  Bonus:\n");
 	ft_printf("    ./fractol sierpinski\n\n");
-	if (!f)
-		clean_exit("Try again...", f);
+	clean_exit("Try again...", f);
 }
 
 void	print_instr1(void)
