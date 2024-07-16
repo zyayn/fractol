@@ -43,9 +43,9 @@ static void	handle_input(int argc, char **argv, t_fractal *f)
 		if (f->kr > 2.0 || f->kr < -2.0 || f->ki >= 2.0 || f->ki <= -2.0)
 			print_instr2(f);
 	}
-	else if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+	else if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", ft_strlen(argv[1])))
 		f->type = 2;
-	else if (argc == 2 && !ft_strncmp(argv[1], "sierpinski", 10))
+	else if (argc == 2 && !ft_strncmp(argv[1], "sierpinski", ft_strlen(argv[1])))
 		f->type = 3;
 	else
 		print_instr2(f);
