@@ -55,19 +55,15 @@ $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
 
 $(MLX):
-	@echo "Making minilibx..."
-	@make -sC $(MLX_PATH)
+	@make -C $(MLX_PATH)
 
 $(LIBFT):
-	@echo "Making libft..."
-	@make -sC $(LIBFT_PATH)
+	@make -C $(LIBFT_PATH)
 
 $(FTPRINTF):
-	@echo "Making ft_printf..."
-	@make -sC $(FTPRINTF_PATH)
+	@make -C $(FTPRINTF_PATH)
 
 $(NAME): $(OBJS)
-	@echo "Making fract'ol..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(FTPRINTF) $(INC) -lXext -lX11 -lm
 	@echo "Fract'ol is ready."
 
