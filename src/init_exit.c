@@ -14,21 +14,22 @@
 
 void	clean_exit(char *err_msg, t_fractal *f)
 {
-	if (!f)
-		exit(1);
-	if (f->palette)
-		free(f->palette);
-	if (f->buf)
-		f->buf = NULL;
-	if (f->img)
-		mlx_destroy_image(f->mlx, f->img);
-	if (f->win && f->mlx)
-		mlx_destroy_window(f->mlx, f->win);
-	if (f->mlx)
+	if (f)
 	{
-		mlx_loop_end(f->mlx);
-		mlx_destroy_display(f->mlx);
-		free(f->mlx);
+		if (f->palette)
+			free(f->palette);
+		if (f->buf)
+			f->buf = NULL;
+		if (f->img)
+			mlx_destroy_image(f->mlx, f->img);
+		if (f->win && f->mlx)
+			mlx_destroy_window(f->mlx, f->win);
+		if (f->mlx)
+		{
+			mlx_loop_end(f->mlx);
+			mlx_destroy_display(f->mlx);
+			free(f->mlx);
+		}
 	}
 	ft_printf("%s\n", err_msg);
 	exit(1);
