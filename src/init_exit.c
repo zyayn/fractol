@@ -6,7 +6,7 @@
 /*   By: zchia <zchia@42.sg>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 17:15:09 by zchia             #+#    #+#             */
-/*   Updated: 2024/07/15 17:15:09 by zchia            ###   ########.fr       */
+/*   Updated: 2024/07/16 22:28:43 by zchia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 void	clean_exit(char *err_msg, t_fractal *f)
 {
-	if (f)
+	if (f->palette)
+		free(f->palette);
+	if (f->buf)
+		f->buf = NULL;
+	if (f->img)
+		mlx_destroy_image(f->mlx, f->img);
+	if (f->win && f->mlx)
+		mlx_destroy_window(f->mlx, f->win);
+	if (f->mlx)
 	{
-		if (f->palette)
-			free(f->palette);
-		if (f->buf)
-			f->buf = NULL;
-		if (f->img)
-			mlx_destroy_image(f->mlx, f->img);
-		if (f->win && f->mlx)
-			mlx_destroy_window(f->mlx, f->win);
-		if (f->mlx)
-		{
-			mlx_loop_end(f->mlx);
-			mlx_destroy_display(f->mlx);
-			free(f->mlx);
-		}
+		mlx_loop_end(f->mlx);
+		mlx_destroy_display(f->mlx);
+		free(f->mlx);
 	}
 	ft_printf("%s\n", err_msg);
 	exit(1);
@@ -49,6 +46,8 @@ void	set_palette(int **palette, int shift)
 	colours[5] = 0x4B0082;
 	colours[6] = 0x8B00FF;
 	palette_size = 7;
+	if (*palette)
+		free(*palette);
 	*palette = ft_calloc(palette_size, sizeof(int));
 	i = 0;
 	while (i < palette_size)
