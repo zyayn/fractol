@@ -35,7 +35,6 @@
 # define KEY_RIGHT 65363
 # define KEY_PLUS 61
 # define KEY_MINUS 45
-# define KEY_SPACE 32
 # define MOUSE_WHEEL_UP 4
 # define MOUSE_WHEEL_DOWN 5
 

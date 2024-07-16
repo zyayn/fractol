@@ -49,9 +49,9 @@ void	print_instr1(void)
 	ft_printf("  Movement:\n");
 	ft_printf("    - Use arrow keys or key W A S D to move\n\n");
 	ft_printf("  Zoom:\n");
-	ft_printf("    - Use mouse scroll or key I/+ and O/- to zoom in/out\n\n");
-	ft_printf("  Colour Adjustments:\n");
-	ft_printf("    - Use key C to change the color schemes\n\n");
+	ft_printf("    - Use key I/+ and O/- mouse scroll to zoom in/out\n\n");
+	ft_printf("  Colour:\n");
+	ft_printf("    - Use key C to shift colour range\n\n");
 	ft_printf("  Other Controls:\n");
 	ft_printf("    - Use key M/L to change the detail level\n");
 	ft_printf("    - Use key R to reset fractal to initial view\n");
