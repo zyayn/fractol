@@ -30,6 +30,7 @@ INC			=	-I minilibx-linux/ \
 				-I libft \
 				-I ft_printf \
 
+SRC_PATH	=	src/
 SRC			=	fractol.c \
 				init_exit.c \
 				instructions.c \
@@ -52,8 +53,6 @@ $(OBJS): $(OBJ_PATH)
 
 $(OBJ_PATH):
 	@mkdir $(OBJ_PATH)
-	@mkdir $(OBJ_PATH)fractals/
-	@mkdir $(OBJ_PATH)colour_schemes/
 
 $(MLX):
 	@echo "Making minilibx..."
