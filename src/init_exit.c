@@ -93,11 +93,11 @@ void	init(t_fractal *f)
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	if (!f->img)
 		clean_exit("Error creating image.", f);
-	set_palette(&f->palette, f->cindex);
-	if (!f->palette)
-		clean_exit("Error initialising colour palette.", f);
 	buf = mlx_get_data_addr(f->img, &pixel_bits, &line_bytes, &endian);
 	if (!buf)
 		clean_exit("Error getting image data address.", f);
+	set_palette(&f->palette, f->cindex);
+	if (!f->palette)
+		clean_exit("Error initialising colour palette.", f);
 	f->buf = buf;
 }

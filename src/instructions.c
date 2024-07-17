@@ -45,14 +45,14 @@ void	print_instr1(void)
 {
 	print_header();
 	ft_printf("  ============Instructions============\n\n");
-	ft_printf("  Movement:\n");
-	ft_printf("    - Use arrow keys or key W A S D to move\n\n");
+	ft_printf("  Move:\n");
+	ft_printf("    - Key W A S D or arrow keys to move\n\n");
 	ft_printf("  Zoom:\n");
-	ft_printf("    - Use key I/+ and O/- mouse scroll to zoom in/out\n\n");
+	ft_printf("    - Key I/+ and O/- or mouse scroll to zoom in/out\n\n");
 	ft_printf("  Colour:\n");
-	ft_printf("    - Use key C to shift colour range\n\n");
+	ft_printf("    - Key C to shift colour range\n\n");
 	ft_printf("  Other Controls:\n");
-	ft_printf("    - Use key M/L to change the detail level\n");
-	ft_printf("    - Use key R to reset fractal to initial view\n");
+	ft_printf("    - Key M/L to change the detail level\n");
+	ft_printf("    - Key R to reset fractal to initial view\n");
 	ft_printf("    - Key Esc to exit the program\n\n");
 }
