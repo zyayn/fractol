@@ -63,8 +63,6 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(FTPRINTF) -lXext -lX11 -lm
 	@echo "Fract'ol is ready."
 
-bonus: all
-
 clean:
 	@echo "Removing .o object files..."
 	@rm -rf $(OBJ_PATH)
