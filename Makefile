@@ -26,10 +26,6 @@ FTPRINTF_PATH	= ft_printf/
 FTPRINTF_NAME	= libftprintf.a
 FTPRINTF		= $(FTPRINTF_PATH)$(FTPRINTF_NAME)
 
-INC			=	-I minilibx-linux/ \
-				-I libft \
-				-I ft_printf \
-
 SRC_PATH	=	src/
 SRC			=	fractol.c \
 				init_exit.c \
@@ -47,7 +43,7 @@ OBJS		= $(addprefix $(OBJ_PATH), $(OBJ))
 all: $(MLX) $(LIBFT) $(FTPRINTF) $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJS): $(OBJ_PATH)
 
@@ -64,7 +60,7 @@ $(FTPRINTF):
 	@make -C $(FTPRINTF_PATH)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(FTPRINTF) $(INC) -lXext -lX11 -lm
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(FTPRINTF) -lXext -lX11 -lm
 	@echo "Fract'ol is ready."
 
 bonus: all
@@ -77,10 +73,10 @@ clean:
 	@make clean -C $(FTPRINTF_PATH)
 
 fclean: clean
-	@echo "Removing fract'ol..."
 	@rm -rf $(NAME)
 	@rm -rf $(LIBFT_PATH)$(LIBFT_NAME)
 	@rm -rf $(FTPRINTF_PATH)$(FTPRINTF_NAME)
+	@echo "Fract'ol is removed."
 
 re: fclean all
 
