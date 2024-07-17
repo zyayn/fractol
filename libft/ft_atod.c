@@ -19,10 +19,15 @@ static const char	*whitespace(const char *str)
 	return (str);
 }
 
-int	checksign(const char *str)
+int	checksign(const char **str)
 {
-	if (*str == '-')
+	if (**str == '-')
+	{
+		(*str)++;
 		return (-1);
+	}
+	else if (**str == '+')
+		(*str)++;
 	return (1);
 }
 
@@ -62,8 +67,7 @@ double	ft_atod(const char *str)
 	int		decimal_places;
 
 	str = whitespace(str);
-	sign = checksign(str);
-	str++;
+	sign = checksign(&str);
 	post_nbr = 0.0;
 	decimal_places = 0;
 	result = get_preresult(&str);
